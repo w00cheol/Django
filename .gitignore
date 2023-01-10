@@ -1,0 +1,4 @@
+tutorial/lottoenv/
+db.sqlite3
+settings.py
+__pycache__/

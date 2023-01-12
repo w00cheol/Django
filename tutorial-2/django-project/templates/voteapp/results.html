@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="{% static 'admin/css/base.css' %}">
+<html lang="ko">
+    <title>Results page</title>
+    <head><h1>투표 현황</h1></head>
+    <body>
+        <p>question_id : {{ question.id }}</p>
+        <p>question_text : {{ question.question_text }}</p>
+        <p>pub_date : {{ question.pub_date }}</p>
+        <p>최근 글인가? : {{ question.was_published_recently }}</p>
+
+        <ul>
+            {% for choice in question.choice_set.all %}
+                <li>{{ choice.choice_text }}: {{ choice.votes }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+    <a href = "{% url 'vote:index' %}">뒤로 가기</a>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+    <title>Home page</title>
+    <head>
+        <a href = "{% url 'vote:index' %}">Home page</a>
+    </head>
+    <link type="text/css" rel="stylesheet" charset="UTF-8" href="{% static 'admin/css/base.css' %}">
+    <body>
+        {% if latest_question_list %}
+            <ul>
+                {% for question in latest_question_list %}
+                    <li><a href="{% url 'vote:detail' question.id %}">{{ question }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+    </body>
+</html>

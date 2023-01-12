@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="{% static 'admin/css/base.css' %}">
+<html lang="ko">
+    <title>DETAIL page</title>
+    <head><h1>{{ question.question_text }}</h1></head>
+    <form action="{% url 'vote:vote' question.id %}" method="POST">
+        {% csrf_token %}
+        {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="chioce{{ forloop.counter }}">{{ choice.choice_text }} {{ choice.votes }}</label><br>
+        {% endfor %}
+        <input type="submit" value="투표">
+    </form>
+    <a href = "{% url 'vote:index' %}">뒤로 가기</a>
+</html>

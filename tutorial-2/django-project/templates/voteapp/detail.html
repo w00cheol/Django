@@ -8,7 +8,8 @@
         {% csrf_token %}
         {% for choice in question.choice_set.all %}
             <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-            <label for="chioce{{ forloop.counter }}">{{ choice.choice_text }} {{ choice.votes }}</label><br>
+            <label for="chioce{{ forloop.counter }}">{{ choice.choice_text }} {{ choice.votes }}</label>
+            <br>
         {% endfor %}
         <input type="submit" value="투표">
     </form>

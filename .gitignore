@@ -1,5 +1,8 @@
 tutorial/lottoenv/
+tutorial-2/myvenv/
 db.sqlite3
 settings.py
 __pycache__/
 migrations/
+.DS_Store
+dummy/

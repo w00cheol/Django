@@ -14,9 +14,9 @@
         </div>
         <div class="container lottoprint">
             {% for lotto in lottos %}
-            <h2><a href="{% url 'detail_lotto' lottokey=lotto.pk %}">{{lotto.text}}</a></h2>
-            <p>last update: {{lotto.update_date}} by {{lotto.name}}</p>
-            <p>{{lotto.lottos|linebreaksbr}}</p><!-- linebreaksbr => 개행문자 <br> 로 변환 -->
+                <h2><a href="{% url 'detail_lotto' lottokey=lotto.pk %}">{{lotto.text}}</a></h2>
+                <p>last update: {{lotto.update_date}} by {{lotto.name}}</p>
+                <p>{{lotto.lottos|linebreaksbr}}</p><!-- linebreaksbr => 개행문자 <br> 로 변환 -->
             {% endfor %}
         </div>
     </body>
